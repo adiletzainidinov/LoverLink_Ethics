@@ -1,26 +1,125 @@
 @import "tailwindcss";
 
+/* ─── Design Tokens ───────────────────────────────────────────────────── */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Backgrounds */
+  --color-bg:              #FDFAF7;
+  --color-surface:         #FFFFFF;
+  --color-surface-soft:    #FFF8F5;
+
+  /* Borders */
+  --color-border:          #EDE5DC;
+  --color-border-soft:     #F5EFE8;
+
+  /* Text */
+  --color-text-primary:    #1C1614;
+  --color-text-secondary:  #6B5D57;
+  --color-text-muted:      #A8998F;
+
+  /* Accent – soft rose */
+  --color-accent:          #C97480;
+  --color-accent-hover:    #B5606C;
+  --color-accent-subtle:   #FBF0F1;
+
+  /* Special sections */
+  --color-faith-bg:        #F4ECD9;
+  --color-faith-border:    #DDD0BA;
+
+  /* Shadows */
+  --shadow-sm:  0 1px 3px 0 rgb(0 0 0 / .06), 0 1px 2px -1px rgb(0 0 0 / .04);
+  --shadow-md:  0 4px 16px -2px rgb(0 0 0 / .08), 0 2px 6px -2px rgb(0 0 0 / .05);
 }
+
+/* ─── Tailwind theme extension ────────────────────────────────────────── */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-background:       var(--color-bg);
+  --color-surface:          var(--color-surface);
+  --color-accent:           var(--color-accent);
+  --color-text-primary:     var(--color-text-primary);
+  --color-text-secondary:   var(--color-text-secondary);
+  --color-text-muted:       var(--color-text-muted);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─── Base ────────────────────────────────────────────────────────────── */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-size: 16px;
+    height: 100%;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans), system-ui, sans-serif;
+    line-height: 1.6;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img, svg {
+    display: block;
+    max-width: 100%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ─── Animations ──────────────────────────────────────────────────────── */
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3;  transform: translateY(0);   }
+  55%      { opacity: 0.85; transform: translateY(5px); }
+}
+
+/* ─── Hero stagger utilities ──────────────────────────────────────────── */
+
+@layer utilities {
+  .anim-h1 { animation: heroFadeIn 0.6s ease both; }
+  .anim-h2 { animation: heroFadeIn 0.6s ease both 0.08s; }
+  .anim-h3 { animation: heroFadeIn 0.7s ease both 0.18s; }
+  .anim-h4 { animation: heroFadeIn 0.6s ease both 0.28s; }
+  .anim-scroll {
+    animation:
+      heroFadeIn   0.6s ease-out both         0.42s,
+      scrollPulse  2.5s ease-in-out infinite  1.6s;
+  }
 }
