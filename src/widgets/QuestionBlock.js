@@ -1,16 +1,4 @@
-"use client";
-import { useState } from "react";
-
-const mirrorQuestions = [
-  "Ты хочешь порадовать?",
-  "Или добиться ответа?",
-  "Ты готов принять любой её ответ?",
-  "Ты уверен в своём намерении?",
-];
-
 export default function QuestionBlock() {
-  const [open, setOpen] = useState(false);
-
   return (
     <section className="px-5 py-20">
       <div className="mx-auto w-full max-w-[500px]">
@@ -29,49 +17,28 @@ export default function QuestionBlock() {
             Зачем ты это делаешь?
           </h2>
 
-          {!open && (
-            <button
-              onClick={() => setOpen(true)}
-              className="rounded-full px-6 py-2.5 text-sm font-medium transition-all duration-200 hover:bg-[#FFF8F5] active:scale-[0.97]"
-              style={{
-                border: "1px solid var(--color-border)",
-                color: "var(--color-text-secondary)",
-                background: "transparent",
-              }}
-            >
-              Подумать →
-            </button>
-          )}
-
-          {open && (
-            <div className="text-left">
+          <details className="q-reveal">
+            <summary>Подумать →</summary>
+            <div className="mt-7 text-left">
               <div className="mb-7 space-y-4">
-                {mirrorQuestions.map((q, i) => (
-                  <p
-                    key={q}
-                    className="text-base font-medium"
-                    style={{
-                      color: "var(--color-text-primary)",
-                      animation: "fadeSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both",
-                      animationDelay: `${i * 0.12}s`,
-                    }}
-                  >
-                    — {q}
-                  </p>
-                ))}
+                <p className="q-item text-base font-medium" style={{ color: "var(--color-text-primary)" }}>
+                  — Ты хочешь порадовать?
+                </p>
+                <p className="q-item text-base font-medium" style={{ color: "var(--color-text-primary)" }}>
+                  — Или добиться ответа?
+                </p>
+                <p className="q-item text-base font-medium" style={{ color: "var(--color-text-primary)" }}>
+                  — Ты готов принять любой её ответ?
+                </p>
+                <p className="q-item text-base font-medium" style={{ color: "var(--color-text-primary)" }}>
+                  — Ты уверен в своём намерении?
+                </p>
               </div>
-              <p
-                className="text-sm"
-                style={{
-                  color: "var(--color-text-muted)",
-                  animation: "fadeSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both",
-                  animationDelay: "0.52s",
-                }}
-              >
+              <p className="q-close text-sm" style={{ color: "var(--color-text-muted)" }}>
                 Ответь только себе.
               </p>
             </div>
-          )}
+          </details>
         </div>
       </div>
     </section>

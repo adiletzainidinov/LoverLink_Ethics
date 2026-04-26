@@ -75,7 +75,7 @@ export default function HeroSection() {
           aria-hidden="true"
         >
           <div className="h-8 w-px" style={{ background: "var(--color-border)" }} />
-          <div className="h-1.5 w-1.5 rounded-full" style={{ background: "var(--color-border)" }} />
+          <div className="scroll-dot h-1.5 w-1.5 rounded-full" style={{ background: "var(--color-border)" }} />
         </div>
       </div>
     </section>
