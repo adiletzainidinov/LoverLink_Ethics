@@ -1,16 +1,16 @@
-export default function FinalBlock() {
+export default function FinalBlock({ returnHref }) {
   return (
     <section
       className="px-5 py-24 text-center"
-      style={{ background: "var(--color-accent-subtle)" }}
+      style={{ background: 'var(--color-accent-subtle)' }}
     >
       <div className="mx-auto w-full max-w-[500px] flex flex-col items-center">
         {/* Heart icon */}
         <div
           className="mb-8 flex h-12 w-12 items-center justify-center rounded-full"
           style={{
-            background: "var(--color-surface)",
-            border: "1px solid var(--color-border)",
+            background: 'var(--color-surface)',
+            border: '1px solid var(--color-border)',
           }}
         >
           <svg
@@ -37,7 +37,7 @@ export default function FinalBlock() {
         {/* Heading */}
         <h2
           className="mb-5 text-2xl font-semibold sm:text-3xl"
-          style={{ color: "var(--color-text-primary)" }}
+          style={{ color: 'var(--color-text-primary)' }}
         >
           Делай это искренне.
         </h2>
@@ -45,24 +45,26 @@ export default function FinalBlock() {
         {/* Second chance */}
         <p
           className="mb-7 max-w-[340px] text-base leading-relaxed"
-          style={{ color: "var(--color-text-muted)" }}
+          style={{ color: 'var(--color-text-muted)' }}
         >
           Если раньше ты не думал об этом — всё нормально.
-          <br />Сейчас думаешь.
-          <br />Это уже другое.
+          <br />
+          Сейчас думаешь.
+          <br />
+          Это уже другое.
         </p>
 
         {/* Body */}
         <p
           className="mb-4 max-w-[360px] text-base leading-relaxed sm:text-lg"
-          style={{ color: "var(--color-text-secondary)" }}
+          style={{ color: 'var(--color-text-secondary)' }}
         >
-          LoveLink создан для добра. Для радости.
-          Для слов, которые не стыдно сказать вслух.
+          LoveLink создан для добра. Для радости. Для слов, которые не стыдно
+          сказать вслух.
         </p>
         <p
           className="mb-10 max-w-[360px] text-base font-medium"
-          style={{ color: "var(--color-text-primary)" }}
+          style={{ color: 'var(--color-text-primary)' }}
         >
           Если намерение чистое — действуй.
         </p>
@@ -71,38 +73,25 @@ export default function FinalBlock() {
         <div
           className="mb-10 w-full rounded-2xl px-5 py-5 text-left"
           style={{
-            background: "var(--color-surface)",
-            border: "1px solid var(--color-border)",
+            background: 'var(--color-surface)',
+            border: '1px solid var(--color-border)',
           }}
         >
           <p
             className="mb-2 text-xs font-semibold uppercase tracking-widest"
-            style={{ color: "var(--color-text-muted)" }}
+            style={{ color: 'var(--color-text-muted)' }}
           >
             Для всех
           </p>
           <p
             className="text-sm leading-relaxed"
-            style={{ color: "var(--color-text-secondary)" }}
+            style={{ color: 'var(--color-text-secondary)' }}
           >
-            На этой странице мы говорили о девушке — потому что LoveLink
-            чаще всего используют для романтичных подарков. Но эти принципы
-            касаются каждого. Любого, чьи чувства могут быть затронуты.
+            На этой странице мы говорили о девушке — потому что LoveLink чаще
+            всего используют для романтичных подарков. Но эти принципы касаются
+            каждого. Любого, чьи чувства могут быть затронуты.
           </p>
         </div>
-
-        {/* CTA */}
-        <a
-          href="#"
-          className="inline-block rounded-full px-8 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 active:scale-[0.97]"
-          style={{
-            background: "var(--color-accent)",
-            boxShadow: "var(--shadow-md)",
-            letterSpacing: "0.01em",
-          }}
-        >
-          Вернуться к LoveLink
-        </a>
       </div>
     </section>
   );

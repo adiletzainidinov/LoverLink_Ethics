@@ -15,13 +15,15 @@
   /* Text */
   --color-text-primary:    #1C1614;
   --color-text-secondary:  #6B5D57;
-  /* darkened from #A8998F → passes 4.5:1 WCAG AA on #FDFAF7 */
-  --color-text-muted:      #78706A;
+  /* darkened to #706860 → passes 4.5:1 WCAG AA on all section backgrounds incl. faith-bg #F4ECD9 */
+  --color-text-muted:      #706860;
 
   /* Accent – soft rose */
   --color-accent:          #C97480;
   --color-accent-hover:    #B5606C;
   --color-accent-subtle:   #FBF0F1;
+  /* Button background: darker rose → 4.75:1 contrast with white text (WCAG AA) */
+  --color-btn-primary:     #AE5965;
 
   /* Special sections */
   --color-faith-bg:        #F4ECD9;
@@ -96,41 +98,23 @@
   to   { opacity: 1; transform: translateY(0);    }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-@keyframes heroFadeIn {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0);    }
-}
-
-/* transform-only — used for LCP element (h1) so it's visible from t=0 */
+/* transform-only — all hero elements use this so they are visible from t=0 */
 @keyframes heroSlideIn {
   from { transform: translateY(14px); }
   to   { transform: translateY(0);    }
 }
 
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.3;  transform: translateY(0);   }
-  55%      { opacity: 0.85; transform: translateY(5px); }
-}
-
 /* ─── Hero stagger utilities ──────────────────────────────────────────── */
+/* All use transform-only heroSlideIn: elements visible from t=0, no opacity:0 paint cost */
 
 @layer utilities {
-  .anim-h1 { animation: heroFadeIn 0.6s ease both; }
-  .anim-h2 { animation: heroFadeIn 0.6s ease both 0.08s; }
-  /* h1 headline: transform-only so LCP element is visible immediately */
-  .anim-h3 { animation: heroSlideIn 0.7s ease both 0.18s; }
-  .anim-h4 { animation: heroFadeIn 0.6s ease both 0.28s; }
-  /* wrapper fades in; pulse lives on .scroll-dot to avoid compositor conflict */
-  .anim-scroll { animation: heroFadeIn 0.6s ease-out both 0.42s; }
-  .scroll-dot {
-    will-change: opacity, transform;
-    animation: scrollPulse 2.5s ease-in-out infinite 1.6s;
-  }
+  .anim-h1 { animation: heroSlideIn 0.5s ease both; }
+  .anim-h2 { animation: heroSlideIn 0.5s ease both; }
+  .anim-h3 { animation: heroSlideIn 0.7s ease both; }
+  .anim-h4 { animation: heroSlideIn 0.5s ease both; }
+  /* scroll hint: static, no animation — eliminates infinite compositor work */
+  .anim-scroll { /* intentionally empty */ }
+  .scroll-dot  { /* intentionally empty — static dot, no will-change */ }
 }
 
 /* ─── QuestionBlock: CSS-only disclosure widget ───────────────────────── */

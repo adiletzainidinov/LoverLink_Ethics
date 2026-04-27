@@ -5,7 +5,8 @@
       "Bash(npx create-next-app@latest lovelink-ethics --js --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-git --yes)",
       "Bash(rm public/file.svg public/globe.svg public/next.svg public/vercel.svg public/window.svg)",
       "Bash(mkdir -p src/shared/ui src/shared/lib src/widgets)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(node -e ' *)"
     ]
   }
 }

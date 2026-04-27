@@ -17,7 +17,7 @@ export default function HomePage() {
       <QuestionBlock />    {/* ВОПРОС — "Зачем?" (интерактив) */}
       <Divider />
       <WhyItMatters />     {/* ПОНИМАНИЕ — почему важно */}
-      <WhoIsShe />         {/* ЧЕЛОВЕК — кому ты это отправляешь */}
+      <WhoIsShe />         {/* ЧЕЛОВЕК — кому ты это отправляешься */}
       <Divider />
       <PureIntentions />   {/* ПРАВИЛА — что нельзя */}
       <IntentionBlock />   {/* НИЙЯТ — философия намерения */}

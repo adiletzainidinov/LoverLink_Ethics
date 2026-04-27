@@ -1,7 +1,7 @@
 export default function HeroSection() {
   return (
     <section
-      className="flex min-h-[100svh] flex-col items-center justify-center px-5 py-24 text-center"
+      className="flex min-h-screen flex-col items-center justify-center px-5 py-24 text-center"
       style={{
         background:
           "radial-gradient(ellipse 90% 60% at 50% -10%, #FFE8E8 0%, var(--color-bg) 65%)",
@@ -47,8 +47,12 @@ export default function HeroSection() {
 
         {/* Heading */}
         <h1
-          className="anim-h3 mb-6 text-[2.6rem] font-semibold leading-[1.1] sm:text-5xl"
-          style={{ color: "var(--color-text-primary)", letterSpacing: "-0.03em" }}
+          className="mb-6 text-[2.6rem] font-semibold leading-[1.1] sm:text-5xl"
+          style={{
+            color: "var(--color-text-primary)",
+            letterSpacing: "-0.03em",
+            fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+          }}
         >
           Подожди.
         </h1>
